@@ -165,6 +165,26 @@
 	<References>
 	</References>
 	<Files>
+		<Filter
+			Name="include"
+			>
+			<File
+				RelativePath="..\include\IGame.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="game"
+			>
+			<File
+				RelativePath="..\source\game\Game.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\game\Game.h"
+				>
+			</File>
+		</Filter>
 	</Files>
 	<Globals>
 	</Globals>

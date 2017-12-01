@@ -1,4 +1,4 @@
-/*
+﻿/*
 | -------------------------------------------------------------------
 | IGame.h
 | -------------------------------------------------------------------
@@ -10,7 +10,7 @@
 #define IGAME__20171129
 
 #ifndef TAIJIE_API
-#define TAIJIE_API extern "C" __declspec(dllimport)
+#define TAIJIE_API //extern "C" __declspec(dllimport)
 #endif
 
 // 叫分的枚举定义
