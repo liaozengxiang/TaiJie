@@ -66,6 +66,8 @@ struct IGameNotify
     virtual void OnPlayerScore(int nStepScore, int nTotalScore);                            // 闲家上分
     virtual void OnScoreExceeded() = 0;                                                     // 闲家已破分
     virtual void OnGameOver(int nScoreNeeded, int nTotalScore, int nPoints) = 0;            // 游戏结束，判定胜负，确定本轮的点数
+    virtual void OnPlayerPoints(const char *lpszUserID,
+                                int nPoints, int nWinCount, int nLoseCount) = 0;            // 玩家战况，用于展示排行榜
 };
 
 struct IGame
@@ -79,8 +81,7 @@ struct IGame
     virtual bool PutBottomCard(unsigned char *pCard, int nSize) = 0;                        // 放底牌，数量必须是8张
     virtual bool SetMasterSuit(ESuit eSuit) = 0;                                            // 设置主花色
     virtual bool PlayCard(unsigned char *pCard, int nSize) = 0;                             // 出牌
-    virtual bool GetPlayerPoints(const char *lpszUserID, int *pPoints,
-                                 int *pWinCount, int *pLoseCount) = 0;                      // 获取玩家的战况
+    virtual bool GetPlayerPoints(const char *lpszUserID) = 0;                               // 获取玩家的战况
     virtual bool Leave() = 0;                                                               // 玩家离开游戏桌
     virtual bool Quit() = 0;                                                                // 玩家登出游戏
     virtual void Release() = 0;                                                             // 释放游戏对象
