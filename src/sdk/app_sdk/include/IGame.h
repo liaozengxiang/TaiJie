@@ -51,17 +51,17 @@ enum ESuit
 
 struct IGameNotify
 {
-    virtual void OnUserIn(const char *lpszUserID, int nSeatID) = 0;                         // 用户进来
-    virtual void OnUserLeave(const char *lpszUserID) = 0;                                   // 用户离开
-    virtual void OnUserReady(bool bReady) = 0;                                              // 用户准备/取消准备
+    virtual void OnUserIn(const char *lpszUserID, int nSeatID) = 0;                         // 玩家进来
+    virtual void OnUserLeave(const char *lpszUserID) = 0;                                   // 玩家离开
+    virtual void OnUserReady(const char *lpszUserID, bool bReady) = 0;                      // 玩家准备/取消准备
     virtual void OnGameBegin() = 0;                                                         // 游戏开始
-    virtual void OnDeal(const char *lpszUserID, unsigned char *pCard, int nSize) = 0;       // 发牌，每轮共回调4次
-    virtual void OnTurnToBid(const char *lpszUserID, int nCountDown) = 0;                   // 轮到叫分，并指定倒计时秒数
+    virtual void OnDeal(const char *lpszUserID, unsigned char *pCard, int nSize) = 0;       // 发牌，为了安全，只通知玩家自己的牌
+    virtual void OnTurnToBid(const char *lpszUserID, int nTimeout) = 0;                     // 轮到叫分，并指定倒计时秒数
     virtual void OnBid(const char *lpszUserID, EScore eScore) = 0;                          // 叫分
     virtual void OnBankerConfirmed(const char *lpszUserID, int nScoreNeeded) = 0;           // 确认庄家，并指定闲家需要上分的总数
-    virtual void OnPutBottomCard(unsigned char *pCard, int nSize) = 0;                      // 庄家放底牌
+    virtual void OnPutBottomCard() = 0;                                                     // 庄家放底牌，所有人不能看到底牌
     virtual void OnSuitConfirmed(ESuit eSuit) = 0;                                          // 庄家确定主花色
-    virtual void OnTurnToPlayCard(const char *lpszUserID, int nCountDown) = 0;              // 轮到指定玩家出牌，并指定倒计时秒数
+    virtual void OnTurnToPlayCard(const char *lpszUserID, int nTimeout) = 0;                // 轮到指定玩家出牌，并指定倒计时秒数
     virtual void OnPlayCard(const char *lpszUserID, unsigned char *pCard, int nSize) = 0;   // 玩家出牌
     virtual void OnPlayerScore(int nStepScore, int nTotalScore);                            // 闲家上分
     virtual void OnScoreExceeded() = 0;                                                     // 闲家已破分
