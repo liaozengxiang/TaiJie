@@ -6,14 +6,11 @@ SET(CMAKE_CXX_FLAGS_RELEASE "-O2 -Wall -DNDEBUG")
 SET(EXECUTABLE_OUTPUT_PATH  ${PROJECT_SOURCE_DIR}/bin)
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/../third-party/LFC/LFC/Include)
 
-SET(SOURCE_FILES
-	source/startup/Main.cpp
-)
+aux_source_directory(source/session/ FILES)
+aux_source_directory(source/startup/ FILES)
+aux_source_directory(source/user/    FILES)
 
-SET(INCLUDE_FILES
-)
-
-ADD_EXECUTABLE(TaiJie ${SOURCE_FILES} ${INCLUDE_FILES})
+ADD_EXECUTABLE(TaiJie ${FILES})
 TARGET_LINK_LIBRARIES(TaiJie
                       ${PROJECT_SOURCE_DIR}/../third-party/LFC/LFC/Lib/libCommon.a
                       ${PROJECT_SOURCE_DIR}/../third-party/LFC/LFC/Lib/libLog.a
