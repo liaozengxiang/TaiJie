@@ -2,7 +2,6 @@
 #include "../link/Link.h"
 
 CApplication::CApplication()
-    : m_listener(this, this)
 {
 }
 
