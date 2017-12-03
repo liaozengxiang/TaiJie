@@ -170,6 +170,14 @@
 			Name="startup"
 			>
 			<File
+				RelativePath="..\source\startup\Application.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\startup\Application.h"
+				>
+			</File>
+			<File
 				RelativePath="..\source\startup\Main.cpp"
 				>
 			</File>
@@ -223,6 +231,18 @@
 			</File>
 			<File
 				RelativePath="..\source\rpc\Rpc.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="link"
+			>
+			<File
+				RelativePath="..\source\link\Link.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\link\Link.h"
 				>
 			</File>
 		</Filter>
