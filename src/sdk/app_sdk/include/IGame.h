@@ -75,7 +75,7 @@ struct IGame
     virtual void SetServer(const char *lpszServer, unsigned short uPort) = 0;               // 设置服务器地址
     virtual void SetNotification(IGameNotify *pNotify) = 0;                                 // 设置通知接口
     virtual bool Login(const char *lpszLoginID, const char *lpszPassword) = 0;              // 登录
-    virtual bool SeatDown(int nDesktopID, int nSeatID) = 0;                                 // 入座
+    virtual bool SitDown(int nDesktopID, int nSeatID) = 0;                                  // 入座
     virtual bool Ready(bool bReady) = 0;                                                    // 准备/取消准备
     virtual bool Bid(EScore eScore) = 0;                                                    // 叫分
     virtual bool PutBottomCard(unsigned char *pCard, int nSize) = 0;                        // 放底牌，数量必须是8张
