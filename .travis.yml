@@ -8,6 +8,7 @@ compiler:
 before_install:
     - lsb_release -a
     - uname -a
+    - sudo apt-get install libmysqlclient-dev -y
 
 install:
     - 
