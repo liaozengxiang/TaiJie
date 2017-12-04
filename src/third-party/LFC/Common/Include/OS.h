@@ -23,6 +23,7 @@ namespace OS
 
 	void  Sleep(Int32 nMillisecond);										// 毫秒级休眠
 	Int64 Milliseconds();													// 获取当前时间的毫秒值
+    Int64 GetTickCount();													// 获取自系统启动后的毫秒数
 
     Bool  SetResourceLimit(Int32 nResource, Int64 lCur, Int64 lMax);        // 设置资源限制
 	Bool  SetMaxFDSize(Int64 lSize);										// 设置系统最大的文件数

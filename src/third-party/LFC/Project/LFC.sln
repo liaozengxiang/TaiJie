@@ -1,19 +1,21 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 10.00
-# Visual Studio 2008
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "..\Common\Project\Common.vcproj", "{7A74E8A7-8DFE-4B23-B488-49B1B95F0922}"
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Common", "..\Common\Project\Common.vcxproj", "{7A74E8A7-8DFE-4B23-B488-49B1B95F0922}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lua", "..\Lua\Project\Lua.vcproj", "{819B39EE-4EF4-4A55-9AFD-29B45FA067CE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lua", "..\Lua\Project\Lua.vcxproj", "{819B39EE-4EF4-4A55-9AFD-29B45FA067CE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework", "..\Framework\Project\Framework.vcproj", "{E01E4ED2-32E9-4A01-A855-5F506BFCBE06}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Framework", "..\Framework\Project\Framework.vcxproj", "{E01E4ED2-32E9-4A01-A855-5F506BFCBE06}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Http", "..\Http\Project\Http.vcproj", "{920C3BCA-4F89-42FC-A1FF-728A76B2C370}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Http", "..\Http\Project\Http.vcxproj", "{920C3BCA-4F89-42FC-A1FF-728A76B2C370}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "..\Test\Test.vcproj", "{1DBB0BC1-D926-4F2E-AC04-119B33205F07}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Test", "..\Test\Test.vcxproj", "{1DBB0BC1-D926-4F2E-AC04-119B33205F07}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Log", "..\Log\Project\Log.vcproj", "{7498F199-C73D-4485-98AF-8EA635FB1AF5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Log", "..\Log\Project\Log.vcxproj", "{7498F199-C73D-4485-98AF-8EA635FB1AF5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MySQL", "..\MySQL\Project\MySQL.vcproj", "{14B06AB3-742E-4569-A1FF-B6C48C922290}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MySQL", "..\MySQL\Project\MySQL.vcxproj", "{14B06AB3-742E-4569-A1FF-B6C48C922290}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

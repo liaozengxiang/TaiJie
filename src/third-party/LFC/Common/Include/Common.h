@@ -31,6 +31,7 @@
 #include "SocketUtil.h"
 #include "STR.h"
 #include "TCPClientSocket.h"
+#include "TCPConnector.h"
 #include "TCPSocket.h"
 #include "Thread.h"
 #include "ThreadPool.h"

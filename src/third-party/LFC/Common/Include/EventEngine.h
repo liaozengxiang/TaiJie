@@ -4,6 +4,7 @@
 #include <vector>
 #include "OSType.h"
 #include "MessageEvent.h"
+#include "SharedPtr.h"
 
 class CEvent;
 class CEventEngine
@@ -20,6 +21,7 @@ public:
     Bool DelEvent(CEvent *lpEvent);
 
     Bool PostMessage(Int32 nMessageID, void *wParam, void *lParam, IMessageEvent *pMsgEvent);
+    Bool PostMessage(Int32 nMessageID, void *wParam, void *lParam, const CSharedPtr<IMessageEvent> &spCallback);
 
     void* SetPrivatePtr(void *ptr);
     void* GetPrivatePtr() const;

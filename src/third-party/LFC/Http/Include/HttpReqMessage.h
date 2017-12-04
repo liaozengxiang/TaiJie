@@ -21,7 +21,7 @@ public:
 	std::string GetProtocol() const;
 
 	// GET 参数相关函数
-	Bool DesGetParameterExist(const std::string &strParamter) const;
+	Bool DoesGetParameterExist(const std::string &strParamter) const;
 	std::string GetParameter(const std::string &strParamter) const;
 	void SetParameter(const std::string &strParamter, const std::string &strValue);
 	void RemoveParameter(const std::string &strParamter);

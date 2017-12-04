@@ -1,0 +1,20 @@
+CMAKE_MINIMUM_REQUIRED(VERSION 2.6)
+
+SET(CMAKE_CXX_FLAGS         "-g3 -Wall")
+SET(CMAKE_CXX_FLAGS_DEBUG   "-g3 -Wall")
+SET(CMAKE_CXX_FLAGS_RELEASE "-O2 -Wall -DNDEBUG")
+SET(LIBRARY_OUTPUT_PATH     ${PROJECT_SOURCE_DIR}/Lib)
+INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/LFC/)
+
+SET(SOURCE_FILES
+    Source/Redis.cpp
+    Source/RedisReply.cpp
+)
+
+SET(INCLUDE_FILES
+    Include/Redis.h     
+    Include/RedisReply.h
+    Include/TypeDef.h
+)	     
+
+ADD_LIBRARY(Redis STATIC ${SOURCE_FILES} ${INCLUDE_FILES})

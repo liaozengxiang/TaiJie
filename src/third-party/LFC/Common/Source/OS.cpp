@@ -210,6 +210,17 @@ Int64 OS::Milliseconds()
 #endif
 }
 
+Int64 OS::GetTickCount()
+{
+#ifdef OS_LINUX
+    struct timespec ts;
+    clock_gettime(CLOCK_MONOTONIC, &ts);
+    return (ts.tv_sec * 1000 + ts.tv_nsec / 1000000);
+#else
+    return ::GetTickCount();
+#endif
+}
+
 Bool OS::SetResourceLimit(Int32 nResource, Int64 lCur, Int64 lMax)
 {
     struct rlimit rl;

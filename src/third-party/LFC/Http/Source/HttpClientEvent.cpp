@@ -56,11 +56,21 @@ void CHttpClientEvent::HandleMessage(void *pMsg, Bool bAsync)
 
 	do
 	{
+        if (!bAsync)
+        {
+            Unregister();
+        }
+
 		if (!pHandler->OnPreCheckRequest(m_address, m_nFD, pReqMsg))
 		{
 			Detach(bAsync);
 			break;
 		}
+
+        if (!bAsync)
+        {
+            RegisterRead();
+        }
 
 		// 检查请求消息是否正确
 		EHttpCode eCode = pHandler->OnCheckRequest(pReqMsg);

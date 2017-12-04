@@ -24,11 +24,13 @@ SET(SOURCE_FILES
 	Source/OS.cpp
 	Source/RWLock.cpp
 	Source/Semaphore.cpp
+	Source/SharedPtr.cpp
 	Source/SocketAddr.cpp
 	Source/Socket.cpp
 	Source/SocketUtil.cpp
 	Source/STR.cpp
 	Source/TCPClientSocket.cpp
+	Source/TCPConnector.cpp
 	Source/TCPSocket.cpp
 	Source/Thread.cpp
 	Source/ThreadPool.cpp
@@ -44,6 +46,7 @@ SET(SOURCE_FILES
 SET(INCLUDE_FILES
 	Include/Archive.h
 	Include/Argv.h
+	Include/AutoPtr.h
 	Include/Assert.h
 	Include/Base64.h
 	Include/Buffer.h
@@ -65,12 +68,14 @@ SET(INCLUDE_FILES
 	Include/Reference.h
 	Include/RWLock.h
 	Include/Semaphore.h
+	Include/SharedPtr.h
 	Include/Singleton.h
 	Include/SocketAddr.h
 	Include/Socket.h
 	Include/SocketUtil.h
 	Include/STR.h
 	Include/TCPClientSocket.h
+	Include/TCPConnector.h
 	Include/TCPSocket.h
 	Include/Thread.h
 	Include/ThreadPool.h

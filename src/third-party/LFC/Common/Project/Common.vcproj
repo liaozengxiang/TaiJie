@@ -325,6 +325,10 @@
 				>
 			</File>
 			<File
+				RelativePath="..\Include\TCPConnector.h"
+				>
+			</File>
+			<File
 				RelativePath="..\Include\TCPSocket.h"
 				>
 			</File>
@@ -698,6 +702,10 @@
 				</FileConfiguration>
 			</File>
 			<File
+				RelativePath="..\Source\SharedPtr.cpp"
+				>
+			</File>
+			<File
 				RelativePath="..\Source\Socket.cpp"
 				>
 				<FileConfiguration
@@ -779,6 +787,10 @@
 			</File>
 			<File
 				RelativePath="..\Source\TCPClientSocket.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\Source\TCPConnector.cpp"
 				>
 			</File>
 			<File

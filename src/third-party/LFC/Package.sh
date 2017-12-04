@@ -1,10 +1,10 @@
-#!/bin/bash
+#!/bin/sh
 
 #
 # 打包脚本，将 LFC 打包
 #
 
-LFC_Version="V100R001B021"
+LFC_Version="V100R001B014"
 LFC_Folder=`pwd`
 
 # 创建 Lib 目录和 Include 目录
@@ -28,12 +28,12 @@ function CompileLibrary()
 	cp    Lib/lib${LibName}.a ${LFC_Folder}/LFC/Lib/
 	chmod 644 Include/*.h
 	mkdir ${LFC_Folder}/LFC/Include/${LibName}/
-	cp    Include/*.h ${LFC_Folder}/LFC/Include/${LibName}/
+	cp -r Include/* ${LFC_Folder}/LFC/Include/${LibName}/
 	return 0;
 }
 
 # 编译所有库，库与库之间使用空格隔开，按先后顺序进行编译
-Libs="Common Log Lua Framework Http MySQL"
+Libs="log4cplus Common Log Lua Framework Http MySQL hiredis Redis"
 for LibName in $Libs
 do
 	CompileLibrary $LibName;

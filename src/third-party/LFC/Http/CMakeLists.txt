@@ -7,6 +7,7 @@ SET(LIBRARY_OUTPUT_PATH     ${PROJECT_SOURCE_DIR}/Lib)
 INCLUDE_DIRECTORIES(LFC)
 
 SET(SOURCE_FILES
+	Source/HttpClient.cpp
 	Source/HttpClientEvent.cpp
 	Source/HttpCode.cpp
 	Source/HttpFrameServer.cpp
@@ -17,6 +18,7 @@ SET(SOURCE_FILES
 )
 
 SET(INCLUDE_FILES
+	Include/HttpClient.h
 	Include/HttpClientEvent.h
 	Include/HttpCode.h
 	Include/HttpFrameServer.h

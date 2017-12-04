@@ -63,22 +63,30 @@ Int32 CTCPClientSocket::GetFD() const
 
 void CTCPClientSocket::OnWrite()
 {
-    m_pTimer->KillTimer();
+    if (m_pTimer != NULL)
+    {
+        m_pTimer->KillTimer();
+    }
     Unregister();
     m_pCallback->OnConnected(this);
 }
 
 void CTCPClientSocket::OnError(Int32 nErrCode)
 {
-    m_pTimer->KillTimer();
+    if (m_pTimer != NULL)
+    {
+        m_pTimer->KillTimer();
+    }
     Unregister();
     m_pCallback->OnConnectFailed(this, nErrCode);
 }
 
 void CTCPClientSocket::OnTimer(CTimer *pTimer)
 {
-    m_pTimer->KillTimer();
+    if (m_pTimer != NULL)
+    {
+        m_pTimer->KillTimer();
+    }
     Unregister();
-
     m_pCallback->OnConnectTimeout(this);
 }

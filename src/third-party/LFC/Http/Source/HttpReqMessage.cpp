@@ -121,7 +121,7 @@ std::string CHttpReqMessage::GetProtocol() const
 	return m_strProtocol;
 }
 
-Bool CHttpReqMessage::DesGetParameterExist(const std::string &strParamter) const
+Bool CHttpReqMessage::DoesGetParameterExist(const std::string &strParamter) const
 {
 	return (m_mapParameters.find(strParamter) != m_mapParameters.end());
 }
