@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 如果 liblog4cplus.a 没有生成，则先编译开源库
 if [ ! -f `pwd`/Lib/liblog4cplus.a ]; then

@@ -1,3 +1,5 @@
+#!/bin/bash
+
 mkdir LFC
 cd LFC
 ln -s ../../Common/Include Common

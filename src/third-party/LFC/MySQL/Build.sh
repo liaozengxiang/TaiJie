@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 如果 libmysqlclient.a/libmysqlclient.so 没有生成，则直接报错
 if [ ! -f /usr/lib64/mysql/libmysqlclient.a ] &&

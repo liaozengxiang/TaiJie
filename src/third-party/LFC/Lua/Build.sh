@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 如果 liblua.a 没有编译，则先编译开源库
 if [ ! -f /usr/local/lib/liblua.a ]; then

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # 将 Common/Framework 库的头文件软链接到 LFC 目录下
 mkdir LFC
