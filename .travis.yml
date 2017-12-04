@@ -14,7 +14,8 @@ install:
 
 script:
     - cd src/third-party/LFC/
-    - sh Package.sh
+    - chmod 755 Package.sh
+    - ./Package.sh
     - tar -zxvf LFC*.tar.gz
 
 after_succesS:

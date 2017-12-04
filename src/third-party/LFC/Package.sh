@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 #
 # 打包脚本，将 LFC 打包
