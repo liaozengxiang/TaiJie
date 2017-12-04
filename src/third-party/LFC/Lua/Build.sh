@@ -5,7 +5,7 @@ if [ ! -f /usr/local/lib/liblua.a ]; then
 	tar -zxvf lua-5.3.0.tar.gz
 	cd lua-5.3.0
 	make linux
-	make install
+	sudo make install
 	cd ..
 fi
 
