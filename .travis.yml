@@ -1,0 +1,28 @@
+sudo: required
+dist: trusty
+language: cpp
+
+compiler:
+    - gcc
+
+before_install:
+    - lsb_release -a
+    - uname -a
+
+install:
+    - 
+
+script:
+    - cd src/third-party/LFC/
+    - sh Package.sh
+    - tar -zxvf LFC*.tar.gz
+
+after_succesS:
+    - 
+
+branches:
+    only:
+    - master
+
+notifications:
+    email: true
