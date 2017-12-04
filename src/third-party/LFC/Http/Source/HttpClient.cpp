@@ -1,4 +1,5 @@
 #include <errno.h>
+#include <unistd.h>
 #include "../Include/HttpClient.h"
 
 CHttpClient::CHttpClient(CEventEngine *pEngine)
