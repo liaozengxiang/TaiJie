@@ -1,11 +1,8 @@
 #!/bin/bash
 
-# 如果 libmysqlclient.a/libmysqlclient.so 没有生成，则直接报错
-if [ ! -f /usr/lib64/mysql/libmysqlclient.a ] &&
-   [ ! -f /usr/lib64/mysql/libmysqlclient.so ] &&
-   [ ! -f /usr/lib/mysql/libmysqlclient.a ] &&
-   [ ! -f /usr/lib/mysql/libmysqlclient.so ]; then
-    echo 'Please install libmysqlclient.a/libmysqlclient.so first';
+# 如果 /usr/include/mysql/mysql.h 没有找到，则直接报错
+if [ ! -f /usr/include/mysql/mysql.h ]; then
+    echo 'Please install mysql header files first';
     exit 1;
 fi
 
