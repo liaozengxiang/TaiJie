@@ -8,9 +8,9 @@ compiler:
 before_install:
     - lsb_release -a
     - uname -a
-    - sudo apt-get install libmysqlclient-dev
-    - sudo apt-get install mysql-client
-    - sudo apt-get install mysql-server
+    - sudo apt-get install libmysqlclient-dev -y
+    - sudo apt-get install mysql-client-5.6 -y
+    - sudo apt-get install mysql-server-5.6 -y
 
 install:
     - 
