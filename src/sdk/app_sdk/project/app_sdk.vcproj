@@ -185,6 +185,30 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="socket"
+			>
+			<File
+				RelativePath="..\source\socket\Client.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\socket\Client.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="parser"
+			>
+			<File
+				RelativePath="..\source\parser\Parser.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\parser\Parser.h"
+				>
+			</File>
+		</Filter>
 	</Files>
 	<Globals>
 	</Globals>

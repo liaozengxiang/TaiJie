@@ -3,6 +3,7 @@
 
 #include <string>
 #include "../../include/IGame.h"
+#include "../socket/Client.h"
 using namespace std;
 
 class CGame : public IGame
@@ -33,6 +34,8 @@ protected:
 
     string          m_strLoginID;
     string          m_strPassword;
+
+    CClient         m_client;
 };
 
 #endif
