@@ -74,6 +74,7 @@ struct IGame
 {
     virtual void SetServer(const char *lpszServer, unsigned short uPort) = 0;               // 设置服务器地址
     virtual void SetNotification(IGameNotify *pNotify) = 0;                                 // 设置通知接口
+    virtual bool Startup() = 0;                                                             // 启动游戏服务
     virtual bool Login(const char *lpszLoginID, const char *lpszPassword) = 0;              // 登录
     virtual bool SitDown(int nDesktopID, int nSeatID) = 0;                                  // 入座
     virtual bool Ready(bool bReady) = 0;                                                    // 准备/取消准备

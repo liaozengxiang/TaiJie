@@ -184,6 +184,14 @@
 				RelativePath="..\source\game\Game.h"
 				>
 			</File>
+			<File
+				RelativePath="..\source\game\MsgHelper.cpp"
+				>
+			</File>
+			<File
+				RelativePath="..\source\game\MsgHelper.h"
+				>
+			</File>
 		</Filter>
 		<Filter
 			Name="socket"

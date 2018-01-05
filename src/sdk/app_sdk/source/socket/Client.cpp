@@ -97,8 +97,15 @@ void CClient::OnConnected(CTCPClientSocket *pSocket)
     delete m_sock;
     m_sock = NULL;
 
-    // 连接服务器成功，注册读事件
-    RegisterRead();
+    // 连接服务器成功，若在连接成功前已有数据需要发送则注册写事件，否则注册读事件
+    if (m_lstBuffers.empty())
+    {
+        RegisterRead();
+    }
+    else
+    {
+        RegisterWrite();
+    }
 }
 
 void CClient::OnConnectFailed(CTCPClientSocket *pSocket, Int32 nError)
@@ -225,7 +232,8 @@ void CClient::OnMessageEvent(Int32 nMessageID, void *wParam, void *lParam)
 {
     if (nMessageID == UM_SEND_BUFFER)
     {
-        if (m_lstBuffers.empty())
+        // 如果此时连接未建立，则将消息暂存到队列中，待连接成功后再注册写事件
+        if (m_lstBuffers.empty() && m_nFD != -1)
         {
             RegisterWrite();
         }

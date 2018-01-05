@@ -1,4 +1,5 @@
 ﻿#include "Game.h"
+#include "MsgHelper.h"
 
 CGame::CGame()
 {
@@ -22,10 +23,18 @@ void CGame::SetNotification(IGameNotify *pNotify)
     m_pNotify = pNotify;
 }
 
-bool CGame::Login(const char *lpszLoginID, const char *lpszPassword)
+bool CGame::Startup()
 {
     CSocketAddr addr(m_strServer.c_str(), m_uPort);
     return m_client.Start(addr, this);
+}
+
+bool CGame::Login(const char *lpszLoginID, const char *lpszPassword)
+{
+    string strRequest = CMsgHelper::MakeLoginRequest(lpszLoginID, lpszPassword);
+
+    m_client.Send(strRequest.c_str(), strRequest.length());
+    return true;
 }
 
 bool CGame::SitDown(int nDesktopID, int nSeatID)
@@ -98,7 +107,13 @@ int main()
     do
     {
         IGame *pGame = GetGameInstance();
-        pGame->SetServer("172.30.30.80", 6666);
+        pGame->SetServer("172.30.30.106", 6666);
+        if (!pGame->Startup())
+        {
+            printf("启动失败\n");
+            break;
+        }
+
         if (!pGame->Login("liaozengxiang", "lory1234"))
         {
             printf("登录失败\n");
@@ -106,6 +121,10 @@ int main()
         }
 
         printf("登录成功\n");
+        while (1)
+        {
+            usleep(1000*1000);
+        }
     } while (0);
 
     return 0;

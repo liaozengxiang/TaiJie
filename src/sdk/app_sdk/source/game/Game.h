@@ -15,6 +15,7 @@ public:
 protected:
     virtual void SetServer(const char *lpszServer, unsigned short uPort);
     virtual void SetNotification(IGameNotify *pNotify);
+    virtual bool Startup();
     virtual bool Login(const char *lpszLoginID, const char *lpszPassword);
     virtual bool SitDown(int nDesktopID, int nSeatID);
     virtual bool Ready(bool bReady);
