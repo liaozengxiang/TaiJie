@@ -18,6 +18,8 @@ void CParser::Initialize(IParserCallback *pCallback)
 
 Bool CParser::Parse(const char *lpszBuf, Int32 nLen)
 {
+    Bool bSuccess = True;
+
     Int32 nParsedLen = 0;
     while (nParsedLen < nLen)
     {
@@ -61,9 +63,12 @@ Bool CParser::Parse(const char *lpszBuf, Int32 nLen)
                 if (!m_pCallback->OnParsePacket(&m_hdr, m_strContent.c_str(), m_hdr.size))
                 {
                     // 客户端要求放弃解析
+                    bSuccess = False;
                     break;
                 }
             }
         }
     }
+
+    return bSuccess;
 }

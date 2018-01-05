@@ -8,6 +8,7 @@ CGame::CGame()
 
 CGame::~CGame()
 {
+    m_client.Stop();
 }
 
 void CGame::SetServer(const char *lpszServer, unsigned short uPort)
@@ -23,10 +24,11 @@ void CGame::SetNotification(IGameNotify *pNotify)
 
 bool CGame::Login(const char *lpszLoginID, const char *lpszPassword)
 {
-    return false;
+    CSocketAddr addr(m_strServer.c_str(), m_uPort);
+    return m_client.Start(addr, this);
 }
 
-bool CGame::SeatDown(int nDesktopID, int nSeatID)
+bool CGame::SitDown(int nDesktopID, int nSeatID)
 {
     return false;
 }
@@ -56,7 +58,7 @@ bool CGame::PlayCard(unsigned char *pCard, int nSize)
     return false;
 }
 
-bool CGame::GetPlayerPoints(const char *lpszUserID, int *pPoints, int *pWinCount, int *pLoseCount)
+bool CGame::GetPlayerPoints(const char *lpszUserID)
 {
     return false;
 }
@@ -76,6 +78,15 @@ void CGame::Release()
     delete this;
 }
 
+void CGame::OnClientDisconnected()
+{
+}
+
+Bool CGame::OnParsePacket(const MsgHeader *pMsgHdr, const char *lpszContent, Int32 nLen)
+{
+    return True;
+}
+
 IGame* GetGameInstance()
 {
     static CGame s_game;
@@ -87,6 +98,7 @@ int main()
     do
     {
         IGame *pGame = GetGameInstance();
+        pGame->SetServer("172.30.30.80", 6666);
         if (!pGame->Login("liaozengxiang", "lory1234"))
         {
             printf("登录失败\n");

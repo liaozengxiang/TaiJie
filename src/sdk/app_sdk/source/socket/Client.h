@@ -19,6 +19,7 @@ public:
 public:
     Bool Start(const CSocketAddr &server, IClientCallback *pCallback);
     void Send(const char *lpszBuf, Int32 nLen);
+    void Stop();
 
 protected:
     // ITCPClientSocketEvent
@@ -27,7 +28,7 @@ protected:
     virtual void OnConnectTimeout(CTCPClientSocket *pSocket);
 
     // CEvent
-    virtual Int32 GetFD() const = 0;
+    virtual Int32 GetFD() const;
     virtual void OnRead();
     virtual void OnWrite();
     virtual void OnError(Int32 nErrCode);

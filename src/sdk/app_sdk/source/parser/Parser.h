@@ -1,6 +1,10 @@
 #ifndef PARSER__20171220
 #define PARSER__20171220
 
+#include <Common/Common.h>
+#include <string>
+using namespace std;
+
 #pragma pack(1)
 
 struct MsgHeader

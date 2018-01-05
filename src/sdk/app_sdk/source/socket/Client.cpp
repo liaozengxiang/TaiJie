@@ -1,12 +1,15 @@
-#include "Client.h"
 #include <assert.h>
+#include <errno.h>
+#include "Client.h"
 
 enum EClientMsg
 {
     UM_SEND_BUFFER = 1,
+    UM_CLOSE
 };
 
 CClient::CClient()
+    : CEvent(NULL)
 {
     m_pCallback = NULL;
     m_sock = NULL;
@@ -44,6 +47,9 @@ Bool CClient::Start(const CSocketAddr &server, IClientCallback *pCallback)
             break;
         }
 
+        // 设置基类的引擎指针
+        m_lpEngine = &m_thread;
+
         m_sock = new CTCPClientSocket(&m_thread);
         if (!m_sock->Create())
         {
@@ -73,6 +79,13 @@ void CClient::Send(const char *lpszBuf, Int32 nLen)
     pBuffer->Write(lpszBuf, nLen);
 
     m_thread.PostMessage(UM_SEND_BUFFER, pBuffer, NULL, this);
+}
+
+void CClient::Stop()
+{
+    CSemaphore sem;
+    m_thread.PostMessage(UM_CLOSE, &sem, NULL, this);
+    sem.WaitForSignal();
 }
 
 void CClient::OnConnected(CTCPClientSocket *pSocket)
@@ -219,6 +232,20 @@ void CClient::OnMessageEvent(Int32 nMessageID, void *wParam, void *lParam)
 
         CBuffer *pBuffer = (CBuffer *)wParam;
         m_lstBuffers.push_back(pBuffer);
+    }
+    else if (nMessageID == UM_CLOSE)
+    {
+        // TODO: 隐患, 若 m_sock 不为空，则表示连接异步操作未完成，会挂掉
+        // 但在此处无法通过 m_sock 取消读写事件，CTCPClientSocket 设计不够友好
+        if (m_nFD != -1)
+        {
+            Unregister();
+            close(m_nFD);
+            m_nFD = -1;
+        }
+
+        CSemaphore *sem = (CSemaphore *)wParam;
+        sem->PostSignal();
     }
 }
 
