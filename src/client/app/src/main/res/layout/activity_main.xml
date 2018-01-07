@@ -36,4 +36,16 @@
         android:background="@drawable/card_112"
         android:layout_marginLeft="100dp"/>
 
+    <TextView
+        android:layout_width="71dp"
+        android:layout_height="96dp"
+        android:background="@drawable/card_112"
+        android:layout_marginLeft="120dp"/>
+
+    <TextView
+        android:layout_width="71dp"
+        android:layout_height="96dp"
+        android:background="@drawable/card_112"
+        android:layout_marginLeft="140dp"/>
+
 </FrameLayout>
