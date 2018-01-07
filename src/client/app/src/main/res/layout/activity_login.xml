@@ -40,8 +40,8 @@
         android:layout_width="321dp"
         android:layout_height="46dp"
         android:background="@drawable/login_btn"
-        android:text="登录"
-        android:textSize="16dp"
+        android:text="@string/login_check"
+        android:textSize="18dp"
         android:textColor="#fff"
         android:id="@+id/btn_login"/>
 
