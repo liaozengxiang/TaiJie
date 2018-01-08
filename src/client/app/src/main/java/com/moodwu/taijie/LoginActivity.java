@@ -3,6 +3,7 @@ package com.moodwu.taijie;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MotionEvent;
@@ -10,8 +11,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 
 public class LoginActivity extends Activity {
+
+    // Honor 6 Plus: DPI=480, 密度=3, 分辨率=1080*1812
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

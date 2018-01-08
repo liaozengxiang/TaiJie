@@ -18,7 +18,7 @@ public class MainActivity extends Activity {
 
     @Override
     public void onBackPressed() {
-        new AlertDialog.Builder(MainActivity.this).setTitle("提示")
+        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this).setTitle("提示")
                 .setMessage("您确定退出游戏吗？")
                 .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                     @Override
@@ -30,7 +30,9 @@ public class MainActivity extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                     }
-                }).show();
+                });
+        builder.setCancelable(false);
+        builder.show();
     }
 
     @Override
