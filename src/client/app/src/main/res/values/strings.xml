@@ -5,9 +5,11 @@
 
     <!-- 登录界面 -->
     <string name="title_activity_login">登录</string>
+    <string name="login_title">台阶游戏登录</string>
     <string name="login_id">用户名/手机/电子邮箱</string>
     <string name="login_password">登录密码</string>
     <string name="login_check">登录</string>
+    <string name="login_register">还没有帐号，点击注册</string>
 
     <string name="hello_world">Hello world!</string>
 </resources>

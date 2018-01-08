@@ -2,6 +2,7 @@ package com.moodwu.taijie;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.Menu;
@@ -26,17 +27,16 @@ public class LoginActivity extends Activity {
 
         Button login = (Button)this.findViewById(R.id.btn_login);
         login.setOnTouchListener(new View.OnTouchListener() {
-             @Override
-             public boolean onTouch(View v, MotionEvent event) {
-                 if (event.getAction() == MotionEvent.ACTION_DOWN) {
-                     // v.setBackgroundResource(R.drawable.login_btn_pressed;
-                 }
-                 else if (event.getAction() == MotionEvent.ACTION_UP) {
-                     // v.setBackgroundResource(R.drawable.login_btn_normal;
-                 }
-                 return false;
-             }
-         });
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_DOWN) {
+                    // v.setBackgroundResource(R.drawable.login_btn_pressed;
+                } else if (event.getAction() == MotionEvent.ACTION_UP) {
+                    // v.setBackgroundResource(R.drawable.login_btn_normal;
+                }
+                return false;
+            }
+        });
 
         login.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -44,6 +44,18 @@ public class LoginActivity extends Activity {
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                 startActivity(intent);
                 finish();
+            }
+        });
+
+        View register = (View)findViewById(R.id.btn_register);
+        register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent();
+                intent.setAction("android.intent.action.VIEW");
+                Uri content_url = Uri.parse("https://passport.moodwu.com/register/");
+                intent.setData(content_url);
+                startActivity(intent);
             }
         });
     }
