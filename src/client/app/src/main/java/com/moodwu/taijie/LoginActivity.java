@@ -18,12 +18,19 @@ import java.text.NumberFormat;
 
 public class LoginActivity extends Activity {
 
+    static {
+        System.loadLibrary("hello");
+    }
+
     // Honor 6 Plus: DPI=480, 密度=3, 分辨率=1080*1812
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        String s = Hello.helloWorld();
+        Toast.makeText(getApplicationContext(), s, Toast.LENGTH_LONG).show();
 
         Button login = (Button)this.findViewById(R.id.btn_login);
         login.setOnTouchListener(new View.OnTouchListener() {

@@ -2,7 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 22
-    buildToolsVersion "22.0.1"
+    buildToolsVersion '25.0.0'
 
     defaultConfig {
         applicationId "com.moodwu.taijie"
@@ -17,6 +17,19 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    sourceSets.main {
+        jni.srcDirs = []                                // 禁用as自动生成mk
+        jniLibs.srcDirs = ['src/main/jniLibs']          // 设置 so 存放路径
+    }
+
+    tasks.withType(JavaCompile) {
+        compileTask -> compileTask.dependsOn 'copyJniLibs'
+    }
+}
+
+task copyJniLibs(type: Copy) {                          // 将新生成的 so 拷贝到 jniLibs 目录
+    from fileTree(dir: file(buildDir.absolutePath + '/../src/main/libs'), include: '**/*.so')
+    into file('src/main/jniLibs')
 }
 
 dependencies {
