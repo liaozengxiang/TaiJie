@@ -9,10 +9,6 @@
 #ifndef IGAME__20171129
 #define IGAME__20171129
 
-#ifndef TAIJIE_API
-#define TAIJIE_API //extern "C" __declspec(dllimport)
-#endif
-
 // 叫分的枚举定义
 enum EScore
 {
@@ -88,6 +84,14 @@ struct IGame
     virtual void Release() = 0;                                                             // 释放游戏对象
 };
 
-TAIJIE_API IGame* GetGameInstance();
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+IGame* GetGameInstance();
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -1,7 +1,10 @@
 #include <unistd.h>
 #include <assert.h>
 #include <errno.h>
+#include <android/log.h>
 #include "Client.h"
+
+#define ERROR_LOG(msg)      __android_log_print(ANDROID_LOG_ERROR, "TaiJie", msg)
 
 enum EClientMsg
 {
@@ -45,6 +48,7 @@ Bool CClient::Start(const CSocketAddr &server, IClientCallback *pCallback)
 
         if (!m_thread.Initialize())
         {
+            ERROR_LOG("Failed to initialize thread");
             break;
         }
 
@@ -54,19 +58,23 @@ Bool CClient::Start(const CSocketAddr &server, IClientCallback *pCallback)
         m_sock = new CTCPClientSocket(&m_thread);
         if (!m_sock->Create())
         {
+            ERROR_LOG("Failed to create TCP socket");
             break;
         }
 
         if (!m_sock->SetNonblock())
         {
+            ERROR_LOG("Failed to set non-block to socket");
             break;
         }
 
         if (!m_sock->Connect(server, this, -1))
         {
+            ERROR_LOG("Failed to connect to server");
             break;
         }
 
+        ERROR_LOG("Startup OK");
         bSuccess = True;
     } while (0);
 

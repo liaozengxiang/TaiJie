@@ -6,7 +6,7 @@ SET(CMAKE_C_COMPILER   "arm-linux-androideabi-gcc")
 
 SET(CMAKE_CXX_FLAGS    "-g3 -Wall -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 --sysroot=/usr/local/android-ndk-r10e/platforms/android-21/arch-arm")
 SET(CMAKE_C_FLAGS      "-g3 -Wall -march=armv7-a -mfloat-abi=softfp -mfpu=vfpv3-d16 --sysroot=/usr/local/android-ndk-r10e/platforms/android-21/arch-arm")
-SET(CMAKE_LD_FLAGS     "-L/usr/local/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a -L${PROJECT_SOURCE_DIR}/../../third-party/LFC/Common/output/lib/android -lcommon -lgnustl_shared")
+SET(CMAKE_LD_FLAGS     "-L/usr/local/android-ndk-r10e/sources/cxx-stl/gnu-libstdc++/4.9/libs/armeabi-v7a -L${PROJECT_SOURCE_DIR}/../../third-party/LFC/Common/output/lib/android -lcommon -lgnustl_shared -llog")
 
 SET(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
 INCLUDE_DIRECTORIES(${PROJECT_SOURCE_DIR}/../../third-party/LFC/Common/output/include)

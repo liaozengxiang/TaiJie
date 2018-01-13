@@ -84,7 +84,6 @@ bool CGame::Quit()
 
 void CGame::Release()
 {
-    delete this;
 }
 
 void CGame::OnClientDisconnected()
