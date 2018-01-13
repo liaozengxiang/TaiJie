@@ -5,4 +5,4 @@ android:
 	sh build-android.sh
 
 clean:
-	rm -rf Build Lib build
+	rm -rf Build Lib build output
