@@ -261,7 +261,9 @@ Int32 OS::GetSocketError()
 std::string OS::GetErrorString(Int32 nErrorID)
 {
 	char szError[64];
-	return strerror_r(nErrorID, szError, 64);
+	strerror_r(nErrorID, szError, 64);
+    
+    return szError;
 }
 
 

@@ -35,17 +35,6 @@ Bool CMessageEvent::Create(Int32 nMessageID, void *wParam, void *lParam, IMessag
     return TriggerEvent();
 }
 
-Bool CMessageEvent::Create(Int32 nMessageID, void *wParam, void *lParam, const CSharedPtr<IMessageEvent> &spCallback)
-{
-    // 存储消息参数
-    m_nMessageID = nMessageID;
-    m_wParam     = wParam;
-    m_lParam     = lParam;
-    m_spCallback = spCallback;
-
-    return TriggerEvent();
-}
-
 Bool CMessageEvent::TriggerEvent()
 {
     Assert(m_nEventFD == -1);
@@ -78,15 +67,7 @@ Int32 CMessageEvent::GetFD() const
 
 void CMessageEvent::OnRead()
 {
-    if (m_pMsgEvent != NULL)
-    {
-        m_pMsgEvent->OnMessageEvent(m_nMessageID, m_wParam, m_lParam);
-    }
-    else
-    {
-        m_spCallback->OnMessageEvent(m_nMessageID, m_wParam, m_lParam);
-    }
-
+    m_pMsgEvent->OnMessageEvent(m_nMessageID, m_wParam, m_lParam);
     delete this;
 }
 
@@ -98,15 +79,7 @@ void CMessageEvent::OnWrite()
 void CMessageEvent::OnError(Int32 nErrCode)
 {
     std::cerr << "Error happened on epoll. ErrCode=" << nErrCode << ",eventfd=" << m_nEventFD << std::endl;
-
-    if (m_pMsgEvent != NULL)
-    {
-        m_pMsgEvent->OnMessageEvent(m_nMessageID, m_wParam, m_lParam);
-    }
-    else
-    {
-        m_spCallback->OnMessageEvent(m_nMessageID, m_wParam, m_lParam);
-    }
+    m_pMsgEvent->OnMessageEvent(m_nMessageID, m_wParam, m_lParam);
 
     delete this;
 }

@@ -183,13 +183,6 @@ Bool CEventEngine::PostMessage(Int32 nMessageID, void *wParam, void *lParam, IMe
     return pMsg->Create(nMessageID, wParam, lParam, pMsgEvent);
 }
 
-
-Bool CEventEngine::PostMessage(Int32 nMessageID, void *wParam, void *lParam, const CSharedPtr<IMessageEvent> &spCallback)
-{
-    CMessageEvent *pMsg = new CMessageEvent(this);
-    return pMsg->Create(nMessageID, wParam, lParam, spCallback);
-}
-
 void* CEventEngine::SetPrivatePtr(void *ptr)
 {
     void *pOldPtr = m_pPrivatePtr;

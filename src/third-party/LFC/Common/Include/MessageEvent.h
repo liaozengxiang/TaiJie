@@ -2,7 +2,6 @@
 #define ___MESSAGE__EVENT__20150503___
 
 #include "Event.h"
-#include "SharedPtr.h"
 
 struct IMessageEvent
 {
@@ -18,7 +17,6 @@ public:
 
 public:
     Bool Create(Int32 nMessageID, void *wParam, void *lParam, IMessageEvent *pMsgEvent);
-    Bool Create(Int32 nMessageID, void *wParam, void *lParam, const CSharedPtr<IMessageEvent> &spCallback);
 
 protected:
     Bool TriggerEvent();
@@ -36,7 +34,6 @@ protected:
     Int32			            m_nEventFD;
 
     IMessageEvent*	            m_pMsgEvent;
-    CSharedPtr<IMessageEvent>   m_spCallback;
 };
 
 #endif
