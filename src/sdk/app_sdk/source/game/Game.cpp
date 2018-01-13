@@ -102,6 +102,7 @@ IGame* GetGameInstance()
     return &s_game;
 }
 
+#if 0
 int main()
 {
     do
@@ -129,3 +130,4 @@ int main()
 
     return 0;
 }
+#endif
