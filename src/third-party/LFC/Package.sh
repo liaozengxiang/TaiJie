@@ -33,7 +33,8 @@ function CompileLibrary()
 }
 
 # 编译所有库，库与库之间使用空格隔开，按先后顺序进行编译
-Libs="log4cplus Common Log Lua Framework Http MySQL hiredis Redis"
+# Libs="log4cplus Common Log Lua Framework Http MySQL hiredis Redis"
+Libs="log4cplus"
 for LibName in $Libs
 do
 	CompileLibrary $LibName;
