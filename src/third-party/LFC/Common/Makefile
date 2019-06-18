@@ -1,5 +1,5 @@
 all: 
-	@echo 'Please specify the target. <linux>|<android>'
+	@sh Build.sh
 
 android:
 	sh build-android.sh
